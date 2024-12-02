@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c87oe1vvsbbvp"
+path="res://.godot/imported/Roti5(LONG).mp3-0e8ea2cddbe4d1d0d4bbf02f53ac72cd.mp3str"
+
+[deps]
+
+source_file="res://roti sounds/Roti5(LONG).mp3"
+dest_files=["res://.godot/imported/Roti5(LONG).mp3-0e8ea2cddbe4d1d0d4bbf02f53ac72cd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
