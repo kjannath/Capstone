@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bu6vcxv4fyx4v"]
+[gd_scene load_steps=34 format=3 uid="uid://bu6vcxv4fyx4v"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_kibm2"]
 [ext_resource type="Texture2D" uid="uid://4fhb7olaym76" path="res://Cat.png" id="2_cptv4"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_tr8mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub7ty"]
 size = Vector2(14, 17.5)
@@ -242,16 +243,19 @@ position = Vector2(-23, -1)
 script = ExtResource("1_kibm2")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(104, 14)
-offset = Vector2(60, 0)
+position = Vector2(102, 8)
+offset = Vector2(180, 0)
 zoom = Vector2(5, 5)
+script = ExtResource("2_tr8mk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(104, 13)
 shape = SubResource("RectangleShape2D_ub7ty")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(102, 8)
 sprite_frames = SubResource("SpriteFrames_yy8l2")
-animation = &"jump part 1"
+animation = &"idle sitting"
 autoplay = "idle sitting"
+frame_progress = 0.923256

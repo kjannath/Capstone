@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const MAX_JUMP_FORCE = -600.0       # Maximum jump force
+const MAX_JUMP_FORCE = -500.0       # Maximum jump force
 const MIN_JUMP_FORCE = -200.0       # Minimum jump force
-const MAX_HORIZONTAL_SPEED = 300.0 # Maximum horizontal speed
+const MAX_HORIZONTAL_SPEED = 200.0 # Maximum horizontal speed
 const GRAVITY = 800.0              # Gravity force
 const JUMP_TIME_LIMIT = 0.5        # Maximum time to charge the jump
 
