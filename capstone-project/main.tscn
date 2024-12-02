@@ -8,4 +8,4 @@
 [node name="Terrain" parent="." instance=ExtResource("3_l4eqk")]
 
 [node name="Cat" parent="." instance=ExtResource("2_xlpkl")]
-position = Vector2(-23, 23)
+position = Vector2(114, 43)
