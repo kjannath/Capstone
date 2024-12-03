@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6t2fxyqumju3"]
+[gd_scene load_steps=4 format=3 uid="uid://6t2fxyqumju3"]
 
 [ext_resource type="PackedScene" uid="uid://bu6vcxv4fyx4v" path="res://cat.tscn" id="2_xlpkl"]
 [ext_resource type="PackedScene" uid="uid://f00760bgt0rr" path="res://Map.tscn" id="3_l4eqk"]
+[ext_resource type="PackedScene" uid="uid://6308ruh4yweo" path="res://MovingPlatform.tscn" id="3_uh8kx"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +10,6 @@
 
 [node name="Cat" parent="." instance=ExtResource("2_xlpkl")]
 position = Vector2(119, 48)
+
+[node name="Moving Platform" parent="." instance=ExtResource("3_uh8kx")]
+position = Vector2(907, 25)

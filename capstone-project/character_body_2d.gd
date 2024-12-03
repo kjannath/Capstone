@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-const MAX_JUMP_FORCE = -300.0
+const MAX_JUMP_FORCE = -400.0
 const MIN_JUMP_FORCE = -150.0
-const MAX_HORIZONTAL_SPEED = 200.0
+const MAX_HORIZONTAL_SPEED = 400.0
 const GRAVITY = 700.0
-const JUMP_TIME_LIMIT = 0.5
+const JUMP_TIME_LIMIT = 1.5
 
 var is_jumping = false
 var jump_time = 0.0

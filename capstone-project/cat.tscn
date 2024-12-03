@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://progress_bar.gd" id="3_6qvw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub7ty"]
-size = Vector2(14, 17.5)
+size = Vector2(16, 15.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dygas"]
 atlas = ExtResource("2_cptv4")
@@ -260,15 +260,16 @@ offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
 max_value = 0.5
+show_percentage = false
 script = ExtResource("3_6qvw6")
 character_node = NodePath("../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(24, 8)
+position = Vector2(25, 8.875)
 shape = SubResource("RectangleShape2D_ub7ty")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(25, 2)
+position = Vector2(25, 4)
 sprite_frames = SubResource("SpriteFrames_yy8l2")
-animation = &"jump part 2"
+animation = &"idle sitting"
 autoplay = "idle sitting"
