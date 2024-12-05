@@ -1,9 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://bu6vcxv4fyx4v"]
+[gd_scene load_steps=38 format=3 uid="uid://bu6vcxv4fyx4v"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_kibm2"]
 [ext_resource type="Texture2D" uid="uid://4fhb7olaym76" path="res://Cat.png" id="2_cptv4"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_tr8mk"]
 [ext_resource type="Script" path="res://progress_bar.gd" id="3_6qvw6"]
+[ext_resource type="PackedScene" uid="uid://b4j3bls00h3ks" path="res://LoseScene.tscn" id="3_xuh4m"]
+[ext_resource type="AudioStream" path="res://roti sounds/Roti4(LONG).mp3" id="6_ypccr"]
+[ext_resource type="AudioStream" path="res://roti sounds/Roti5(LONG).mp3" id="7_veaoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub7ty"]
 size = Vector2(16, 15.75)
@@ -243,11 +246,19 @@ animations = [{
 position = Vector2(-23, -1)
 script = ExtResource("1_kibm2")
 
+[node name="DeathTimer" type="Timer" parent="CharacterBody2D"]
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(102, 8)
 offset = Vector2(100, 0)
 zoom = Vector2(5, 5)
 script = ExtResource("2_tr8mk")
+
+[node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_xuh4m")]
+offset_left = 96.0
+offset_right = 96.0
+scale = Vector2(0.3, 0.3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D/Camera2D"]
 
@@ -273,3 +284,16 @@ position = Vector2(25, 4)
 sprite_frames = SubResource("SpriteFrames_yy8l2")
 animation = &"idle sitting"
 autoplay = "idle sitting"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(23, 1)
+
+[node name="DeathSound1" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(23, 1)
+stream = ExtResource("6_ypccr")
+
+[node name="DeathSound2" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(23, 1)
+stream = ExtResource("7_veaoq")
+
+[connection signal="timeout" from="CharacterBody2D/DeathTimer" to="CharacterBody2D" method="_on_death_timer_timeout"]

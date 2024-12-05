@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1tqwif75w5qt"
+path="res://.godot/imported/cottagecore-17463-[AudioTrimmer.com].mp3-ed845fc18ba473e797166626fc95f74e.mp3str"
+
+[deps]
+
+source_file="res://Roti Sounds/cottagecore-17463-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/cottagecore-17463-[AudioTrimmer.com].mp3-ed845fc18ba473e797166626fc95f74e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
