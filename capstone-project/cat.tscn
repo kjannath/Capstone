@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_tr8mk"]
 [ext_resource type="Script" path="res://progress_bar.gd" id="3_6qvw6"]
 [ext_resource type="PackedScene" uid="uid://b4j3bls00h3ks" path="res://LoseScene.tscn" id="3_xuh4m"]
-[ext_resource type="AudioStream" path="res://roti sounds/Roti4(LONG).mp3" id="6_ypccr"]
-[ext_resource type="AudioStream" path="res://roti sounds/Roti5(LONG).mp3" id="7_veaoq"]
+[ext_resource type="AudioStream" uid="uid://bkh4ptk5wn31c" path="res://Roti Sounds/Roti4(LONG).mp3" id="6_ypccr"]
+[ext_resource type="AudioStream" uid="uid://c87oe1vvsbbvp" path="res://Roti Sounds/Roti5(LONG).mp3" id="7_veaoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub7ty"]
 size = Vector2(16, 15.75)
@@ -247,18 +247,33 @@ position = Vector2(-23, -1)
 script = ExtResource("1_kibm2")
 
 [node name="DeathTimer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.5
 one_shot = true
+
+[node name="LoseScreen" type="CanvasLayer" parent="CharacterBody2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBody2D/LoseScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="Control" parent="CharacterBody2D/LoseScreen/VBoxContainer" instance=ExtResource("3_xuh4m")]
+layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(102, 8)
 offset = Vector2(100, 0)
-zoom = Vector2(5, 5)
+zoom = Vector2(4.5, 4.5)
 script = ExtResource("2_tr8mk")
-
-[node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_xuh4m")]
-offset_left = 96.0
-offset_right = 96.0
-scale = Vector2(0.3, 0.3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D/Camera2D"]
 

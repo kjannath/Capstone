@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dow5wyujulrey"]
+
+[ext_resource type="Texture2D" uid="uid://crlek1wwq50js" path="res://TileMap/Wooden Spike.png" id="1_4ncfs"]
+
+[sub_resource type="GDScript" id="GDScript_m2ktu"]
+script/source = "extends Node2D  # Or StaticBody2D if it's a physical object
+
+signal cat_won  # Signal emitted when the cat wins
+
+func _ready():
+#	$StaticBody2D/Area2D.connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+	pass
+
+func _on_body_entered(body):
+	#if body.name == \"Cat\":  # Adjust \"Cat\" to match your cat node's name
+		#emit_signal(\"cat_won\")
+		pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18gkh"]
+size = Vector2(8, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vschw"]
+size = Vector2(8, 59)
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_m2ktu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(24, 43.5)
+shape = SubResource("RectangleShape2D_18gkh")
+
+[node name="Sprite2D5" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(24, 64)
+texture = ExtResource("1_4ncfs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(24, 54)
+texture = ExtResource("1_4ncfs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(24, 43)
+texture = ExtResource("1_4ncfs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(24, 33)
+texture = ExtResource("1_4ncfs")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(24, 22)
+texture = ExtResource("1_4ncfs")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(24, 43.5)
+shape = SubResource("RectangleShape2D_vschw")

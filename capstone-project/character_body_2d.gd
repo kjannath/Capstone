@@ -27,11 +27,10 @@ var has_played_death_sound = false  # Flag to prevent repeated execution
 
 
 @onready var jump_sound = $JumpSound
-@onready var play_again_button = $Camera2D/Control
 
 func _ready():
-	play_again_button.visible = false
-
+	$LoseScreen.visible = false
+	
 func get_jump_time() -> float:
 	return jump_time
 	
@@ -90,15 +89,13 @@ func _physics_process(_delta: float) -> void:
 		$DeathTimer.start()  # Start the buffer timer and then load death screen
 		has_played_death_sound = true
 		
+		
 	# Move the character
 	move_and_slide()
 
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
-
 
 func _on_death_timer_timeout() -> void:
-	play_again_button.visible = true
+	$LoseScreen.visible = true
 	
 	if randi() % 2 == 0:
 		$DeathSound1.play()

@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://6t2fxyqumju3"]
+[gd_scene load_steps=10 format=3 uid="uid://6t2fxyqumju3"]
 
 [ext_resource type="Script" path="res://gameplay.gd" id="1_7xwfa"]
 [ext_resource type="PackedScene" uid="uid://bu6vcxv4fyx4v" path="res://cat.tscn" id="2_xlpkl"]
 [ext_resource type="PackedScene" uid="uid://f00760bgt0rr" path="res://Map.tscn" id="3_l4eqk"]
-[ext_resource type="AudioStream" uid="uid://1tqwif75w5qt" path="res://roti sounds/cottagecore-17463-[AudioTrimmer.com].mp3" id="3_v63c4"]
+[ext_resource type="AudioStream" uid="uid://1tqwif75w5qt" path="res://Roti Sounds/cottagecore-17463-[AudioTrimmer.com].mp3" id="3_v63c4"]
+[ext_resource type="PackedScene" uid="uid://dm75s7nm16lrg" path="res://WinScene.tscn" id="4_eoxwv"]
+[ext_resource type="Texture2D" uid="uid://crlek1wwq50js" path="res://TileMap/Wooden Spike.png" id="5_3udg7"]
+[ext_resource type="AudioStream" uid="uid://dh6263fb17e4i" path="res://Roti Sounds/yay-6120.mp3" id="5_wgobh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc0xw"]
+size = Vector2(7.5, 71.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgopu"]
+size = Vector2(10, 74)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7xwfa")
@@ -11,9 +20,68 @@ script = ExtResource("1_7xwfa")
 [node name="Terrain" parent="." instance=ExtResource("3_l4eqk")]
 
 [node name="Cat" parent="." instance=ExtResource("2_xlpkl")]
-position = Vector2(119, 48)
+position = Vector2(134, 47)
 
-[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v63c4")
-volume_db = -17.829
-parameters/looping = false
+volume_db = -25.0
+autoplay = true
+
+[node name="YaySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wgobh")
+
+[node name="WinSpike" type="StaticBody2D" parent="."]
+position = Vector2(2400, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinSpike"]
+position = Vector2(423, 12)
+shape = SubResource("RectangleShape2D_uc0xw")
+
+[node name="Area2D" type="Area2D" parent="WinSpike"]
+position = Vector2(393, 20)
+
+[node name="areacollision" type="CollisionShape2D" parent="WinSpike/Area2D"]
+position = Vector2(30, -10)
+shape = SubResource("RectangleShape2D_qgopu")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinSpike"]
+position = Vector2(423, 35)
+scale = Vector2(1, 1.27778)
+texture = ExtResource("5_3udg7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="WinSpike/Sprite2D"]
+position = Vector2(0, -10.1739)
+texture = ExtResource("5_3udg7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WinSpike/Sprite2D"]
+position = Vector2(0, -21.1304)
+texture = ExtResource("5_3udg7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="WinSpike/Sprite2D"]
+position = Vector2(0, -30.5217)
+texture = ExtResource("5_3udg7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="WinSpike/Sprite2D"]
+position = Vector2(0, -33.6521)
+texture = ExtResource("5_3udg7")
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="Win Button" parent="WinScreen/VBoxContainer" instance=ExtResource("4_eoxwv")]
+layout_mode = 2
+
+[connection signal="body_entered" from="WinSpike/Area2D" to="." method="_on_area_2d_body_entered"]
